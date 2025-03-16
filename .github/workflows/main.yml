@@ -2,8 +2,8 @@ name: Run Telegram Bot
 
 on:
   schedule:
-    - cron: '*/60 * * * *'  # Runs every 60 minutes
-  workflow_dispatch:  # Allows manual runs
+    - cron: '*/60 * * * *'  # Runs every 10 minutes
+  workflow_dispatch:
 
 jobs:
   run-bot:
@@ -21,4 +21,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run bot
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  # Securely fetch token
         run: python bot.py
