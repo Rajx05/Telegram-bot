@@ -1,7 +1,7 @@
 import os
-from telegram import Bot
+import telebot
 
 TOKEN = os.getenv("BOT_TOKEN")  # Fetch token from GitHub Secrets
-bot = Bot(token=TOKEN)
+bot = telebot.Telebot(BOT_TOKEN)
 
 bot.send_message(chat_id="1661706465", text="Hello from GitHub Actions!")
