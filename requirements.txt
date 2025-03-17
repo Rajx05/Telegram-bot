@@ -1,3 +1,4 @@
 telebot
 requests
+beautifulsoup4
 
