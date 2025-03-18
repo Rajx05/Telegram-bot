@@ -44,6 +44,7 @@ for div in soup.find_all("div", class_="thumb"):
 
 TOKEN = os.getenv("BOT_TOKEN")  # Fetch token from GitHub Secrets
 bot = telebot.TeleBot(TOKEN)
-bot.send_message(chat_id="-1002188987126", text=f"Today's Top 5 Trending Bhabhi porn:")
-for link in video_links[:5]:
-  bot.send_message(chat_id="-1002188987126", text=f"{link}")
+
+#bot.send_message(chat_id="-1002188987126", text=f"Today's Top 5 Trending Bhabhi porn:")
+#for link in video_links[:5]:
+#  bot.send_message(chat_id="-1002188987126", text=f"{link}")
