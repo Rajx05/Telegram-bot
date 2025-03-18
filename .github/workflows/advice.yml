@@ -24,4 +24,5 @@ jobs:
       - name: Run Daily Advise
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  # Securely fetch token
+          CHAT_ID: ${{ secrets.CHAT_ID}} # fetch chat id
         run: python daily-advise.py
