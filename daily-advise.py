@@ -9,7 +9,7 @@ advice = response.text
 
 if response.status_code == requests.codes.ok:
     #print(response.text)
-    bot.send_message(ID,f"Todays Life Advise:\n->{advise})")
+    bot.send_message(ID,f"Todays Life Advise:\n->{advice})")
 
 else:
     print("Error:", response.status_code, response.text)
