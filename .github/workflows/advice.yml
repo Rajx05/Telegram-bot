@@ -2,7 +2,7 @@ name: Run Daily Advise
 
 on:
   schedule:
-    - cron: "0 16 * * *"  # Runs at 9:30 PM IST daily
+    - cron: "30 3 * * *" # 9:00 AM IST (UTC+5:30 is UTC+3:30)
   workflow_dispatch:
 
 jobs:
