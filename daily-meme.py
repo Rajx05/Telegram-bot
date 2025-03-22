@@ -32,7 +32,7 @@ def fetch_memes(subreddit_name="memes", limit=5, save_dir="memes"):
     for post in subreddit.top(time_filter="day",limit=limit * 2):  # Fetch extra posts in case some don't have media
         if post.url.endswith((".jpg", ".png", ".gif", ".mp4", ".webm",".jpeg",".gifv",".webp")):
             count += 1
-            send_meme(post.url, save_dir, f"meme_{count}")
+            send_meme(post.url)
         
         if count >= limit:  # Stop when we reach the desired limit
             break
