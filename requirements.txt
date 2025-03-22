@@ -1,4 +1,5 @@
 telebot
 requests
 beautifulsoup4
+praw
 
