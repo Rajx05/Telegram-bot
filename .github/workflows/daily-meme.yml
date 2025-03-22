@@ -1,0 +1,33 @@
+name: Daily meme
+
+on:
+  schedule:
+    - cron: "30 15 * * *"  # 9:00 PM IST (IST = UTC +5:30)
+  workflow_dispatch:  # Allows manual execution from GitHub Actions UI
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"  # Adjust to your Python version
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  
+
+      - name: Daily meme sender
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{secrets.CHAT_ID}}
+          REDDIT_CLIENT_ID: ${{secrets.REDDIT_CLIENT_ID}}
+          REDDIT_CLIENT_SECRET: ${{secrets.REDDIT_CLIENT_SECRET}}
+          REDDIT_USER_AGENT: ${{secrets.REDDIT_USER_AGENT}}
+        run: |
+          python daily-meme.py  
