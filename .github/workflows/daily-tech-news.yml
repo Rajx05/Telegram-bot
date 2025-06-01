@@ -1,4 +1,4 @@
-name: Daily meme
+name: Daily Tech News
 
 on:
   schedule:
