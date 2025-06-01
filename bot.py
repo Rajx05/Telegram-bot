@@ -35,6 +35,7 @@ def send_meme(chat_id, subreddit_name="memes", limit=1):
 # Basic command
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
+    print("Received command:", message.text)
     bot.reply_to(message, "Yo")
 
 # Webhook endpoint
