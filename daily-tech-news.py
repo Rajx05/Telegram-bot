@@ -40,4 +40,3 @@ def fetch_news(subreddit_name="technology", limit=5, save_dir="news"):
 
 # Run the scraper
 fetch_news(limit=1)
-

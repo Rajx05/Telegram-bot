@@ -20,6 +20,7 @@ def send_meme(url):
     meme = BytesIO(response.content)
     # send meme
     bot.send_photo(id,meme,caption="Today's meme")
+    
     #print(response.text)
     
 

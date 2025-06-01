@@ -1,4 +1,6 @@
 telebot
+flask
+gunicorn
 requests
 beautifulsoup4
 praw
