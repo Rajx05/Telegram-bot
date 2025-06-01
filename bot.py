@@ -41,7 +41,9 @@ def send_welcome(message):
 # Webhook endpoint
 @app.route('/' + TOKEN, methods=['POST'])
 def getMessage():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    update_json = request.stream.read().decode("utf-8")
+    print("Raw update:", update_json)
+    bot.process_new_updates([telebot.types.Update.de_json(update_json)])
     return "OK", 200
 
 # Endpoint for external cron job to trigger meme reminder
