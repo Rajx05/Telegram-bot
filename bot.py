@@ -43,11 +43,15 @@ def getMessage():
 # Endpoint for external cron job to trigger meme reminder
 @app.route('/remind', methods=['POST'])
 def remind():
-    chat_id = os.environ.get("CHAT_ID")  # Set this in your Render environment
-    if chat_id:
+    chat_id = os.environ.get("CHAT_ID")
+    if not chat_id:
+        return "Chat ID not set", 400
+    try:
         send_meme(chat_id)
         return "Meme sent", 200
-    return "Chat ID not set", 400
+    except Exception as e:
+        print(f"Error in /remind: {e}")
+        return f"Error: {e}", 500
 
 # Home route for sanity check
 @app.route('/')
