@@ -23,6 +23,9 @@ def send_meme(chat_id, subreddit_name="memes", limit=1):
     for post in subreddit.top(time_filter="day", limit=limit * 2):
         if post.url.endswith((".jpg", ".png", ".gif", ".mp4", ".webm", ".jpeg", ".gifv", ".webp")):
             response = requests.get(post.url, stream=True)
+            content_length = int(response.headers.get('content-length', 0))
+            if content_length > 10 * 1024 * 1024:  # 10MB
+                continue  # Skip files that are too large
             meme = BytesIO(response.content)
             bot.send_photo(chat_id, meme, caption="Today's meme")
             count += 1
