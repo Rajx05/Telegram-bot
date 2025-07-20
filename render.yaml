@@ -3,7 +3,7 @@ services:
     name: telegram-bot
     env: python
     buildCommand: ""
-    startCommand: gunicorn bot:app
+    startCommand: gunicorn bot:bot.py
     envVars:
       - key: BOT_TOKEN
         value: your_bot_token_here
