@@ -1,0 +1,33 @@
+name: Daily SipsTea
+
+on:
+  schedule:
+    - cron: "30 4 * * *"  # 10:00 AM IST (IST = UTC +5:30)
+  workflow_dispatch:  
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"  
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  
+
+      - name: Daily SipsTea sender
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{secrets.CHAT_ID}}
+          REDDIT_CLIENT_ID: ${{secrets.REDDIT_CLIENT_ID}}
+          REDDIT_CLIENT_SECRET: ${{secrets.REDDIT_CLIENT_SECRET}}
+          REDDIT_USER_AGENT: ${{secrets.REDDIT_USER_AGENT}}
+        run: |
+          python daily-SipsTea.py  
