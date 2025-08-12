@@ -8,7 +8,7 @@ response = requests.get(api_url, headers={'X-Api-Key': 'QqDxZFRyZ9iV6SdFznkiUA==
 
 if response.status_code == requests.codes.ok:
     #print(response.text)
-    bot.send_message(ID,f"Todays Life Advise:\n->{response.json()["advice"]})")
+    bot.send_message(ID,f"Todays Life Advise:\n->{response.json()["advice"]}")
 
 else:
     print("Error:", response.status_code, response.text)
