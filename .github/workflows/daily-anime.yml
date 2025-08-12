@@ -1,0 +1,28 @@
+name: Daily Anime
+
+on:
+  schedule:
+    # Runs daily at 12:30 UTC (6:00 PM IST)
+    - cron: "30 12 * * *"
+
+jobs:
+  run-anime:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      - name: Run daily-anime.py
+        run: python daily-anime.py
